@@ -22,7 +22,7 @@
 	<repositories>
 		<repository>
 			<id>gitlab-maven</id>
-			<url>https://dev.centipod.io/api/v4/projects/${centipod.project.id}/packages/maven</url>
+			<url>https://dev.centipod.io/api/v4/groups/2/-/packages/maven</url>
 		</repository>
 	</repositories>
 
