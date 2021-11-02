@@ -2,6 +2,7 @@ package io.centipod.serialization;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.NotSerializableException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Base64;
@@ -52,6 +53,9 @@ public class SerializationUtil {
 
             // Encode in base64
             return ENCODER.encodeToString(bytes.toByteArray());
+        } catch (NotSerializableException e) {
+
+            throw new IllegalArgumentException(String.format("Failed to serialize '%s'.", object.getClass().getName()), e);
         } catch (Throwable t) {
 
             throw new IllegalArgumentException("Failed to serialize object.", t);
